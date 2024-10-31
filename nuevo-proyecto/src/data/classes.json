@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Yoga",
+    "description": "Una clase de yoga para principiantes.",
+    "schedule": "Lunes y Miércoles 18:00 - 19:00",
+    "image": "@/assets/yoga.jpg",
+    "signupCount": 0
+  },
+  {
+    "id": 2,
+    "name": "Pilates",
+    "description": "Fortalece tu core y mejora tu flexibilidad.",
+    "schedule": "Martes y Jueves 17:00 - 18:00",
+    "image": "@/assets/pilates.jpg",
+    "signupCount": 0
+  },
+  {
+    "id": 3,
+    "name": "Zumba",
+    "description": "Una clase de baile que quema calorías.",
+    "schedule": "Viernes 19:00 - 20:00",
+    "image": "@/assets/zumba.jpg",
+    "signupCount": 0
+  },
+  {
+    "id": 4,
+    "name": "CrossFit",
+    "description": "Entrenamiento funcional para todos los niveles.",
+    "schedule": "Lunes, Miércoles y Viernes 20:00 - 21:00",
+    "image": "@/assets/crossfit.jpg",
+    "signupCount": 0
+  },
+  {
+    "id": 5,
+    "name": "Ciclismo Indoor",
+    "description": "Entrenamiento cardiovascular en bicicleta.",
+    "schedule": "Martes y Jueves 19:00 - 20:00",
+    "image": "@/assets/ciclismo_indoor.jpg",
+    "signupCount": 0
+  },
+  {
+    "id": 6,
+    "name": "Entrenamiento Personalizado",
+    "description": "Entrenamiento individualizado con un instructor.",
+    "schedule": "Por cita previa",
+    "image": "@/assets/entrenamiento_personalizado.jpg",
+    "signupCount": 0
+  }
+]
+
