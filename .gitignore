@@ -1,7 +1,8 @@
+# Ignorar archivos y carpetas específicas
 .DS_Store
-node_modules
-/dist
-
+node_modules/
+dist/
+venv/
 
 # local env files
 .env.local
@@ -14,8 +15,8 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
-.idea
-.vscode
+.idea/
+.vscode/
 *.suo
 *.ntvs*
 *.njsproj
