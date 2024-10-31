@@ -5,6 +5,7 @@ import SignupView from '../views/SignupView.vue';
 import ClassDetail from '../views/ClassDetail.vue';
 import ContactView from '../views/ContactView.vue';
 import AboutView from '../views/AboutView.vue';
+import AddClassView from '../views/AddClassView.vue'; // Importa el nuevo componente
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
@@ -12,7 +13,8 @@ const routes = [
   { path: '/classes/:id', name: 'classDetail', component: ClassDetail },
   { path: '/signup', name: 'signup', component: SignupView },
   { path: '/contact', name: 'contact', component: ContactView },
-  { path: '/about', name: 'about', component: AboutView }
+  { path: '/about', name: 'about', component: AboutView },
+  { path: '/add_class', name: 'add_class', component: AddClassView } // Añadir la ruta para agregar clase
 ];
 
 const router = createRouter({

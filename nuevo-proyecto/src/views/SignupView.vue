@@ -44,9 +44,39 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      console.log(`Name: ${this.name}, Surname: ${this.surname}, DNI: ${this.dni}, Class: ${this.selectedClass}, Gym: ${this.selectedGym}`);
+    async submitForm() {
+      const signupData = {
+        name: this.name,
+        class_name: this.selectedClass,
+        gym_name: this.selectedGym
+      };
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(signupData)
+        });
+
+        if (!response.ok) throw new Error('Failed to sign up');
+
+        const result = await response.json();
+        console.log('Signup successful:', result);
+        // Optionally redirect or show a success message
+        this.resetForm();
+      } catch (error) {
+        console.error(error);
+      }
     },
+    resetForm() {
+      this.name = '';
+      this.surname = '';
+      this.dni = '';
+      this.selectedClass = '';
+      this.selectedGym = '';
+    }
   },
 };
 </script>

@@ -8,6 +8,10 @@
       <button class="classes-button">Clases Disponibles</button>
     </router-link>
 
+    <router-link to="/add_class">
+      <button class="add-class-button">Agregar Clase</button>
+    </router-link>
+
     <div class="about-contact-buttons">
       <router-link to="/about">
         <button class="about-button">About Us</button>
@@ -32,6 +36,7 @@
   border-radius: 8px;
 }
 .classes-button,
+.add-class-button,
 .about-button,
 .contact-button {
   margin: 10px;
@@ -44,9 +49,9 @@
   cursor: pointer;
 }
 .classes-button:hover,
+.add-class-button:hover,
 .about-button:hover,
 .contact-button:hover {
   background-color: #45a049;
 }
 </style>
-

@@ -6,9 +6,16 @@
         <h3>{{ classItem.name }}</h3>
         <p>{{ classItem.description }}</p>
         <p><strong>Horario:</strong> {{ classItem.schedule }}</p>
+        <router-link :to="{ name: 'classDetail', params: { id: classItem.id } }">
+          <button class="details-button">View Details</button>
+        </router-link>
       </div>
     </div>
-    
+
+    <router-link :to="{ name: 'add_class' }">
+      <button class="add-class-button">Add New Class</button>
+    </router-link>
+
     <router-link :to="{ name: 'signup' }">
       <button class="signup-button">Sign Up Now</button>
     </router-link>
@@ -16,14 +23,26 @@
 </template>
 
 <script>
-import classesData from '../data/classes.json';
-
 export default {
   data() {
     return {
-      classes: classesData,
+      classes: []
     };
   },
+  mounted() {
+    this.fetchClasses();
+  },
+  methods: {
+    async fetchClasses() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/classes');
+        if (!response.ok) throw new Error('Failed to fetch classes');
+        this.classes = await response.json();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 };
 </script>
 
@@ -46,16 +65,30 @@ export default {
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
+.add-class-button,
 .signup-button {
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #ff4500;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+.add-class-button:hover,
 .signup-button:hover {
-  background-color: #e03e00;
+  background-color: #45a049;
+}
+.details-button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.details-button:hover {
+  background-color: #007B9A;
 }
 </style>
+

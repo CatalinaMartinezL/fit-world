@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Clase</title>
+</head>
+<body>
+    <h1>Agregar Nueva Clase</h1>
+    <form id="add-class-form">
+        <label for="name">Nombre de la Clase:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="schedule">Horario:</label>
+        <input type="text" id="schedule" name="schedule" required><br>
+
+        <label for="image">Imagen URL:</label>
+        <input type="text" id="image" name="image" required><br>
+
+        <button type="submit">Agregar Clase</button>
+    </form>
+
+    <script>
+        document.getElementById('add-class-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evitar el envío del formulario de forma tradicional
+            
+            const newClass = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                schedule: document.getElementById('schedule').value,
+                image: document.getElementById('image').value
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/classes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newClass)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert('Clase agregada: ' + JSON.stringify(data));
+                    // Opcionalmente puedes limpiar el formulario
+                    document.getElementById('add-class-form').reset();
+                } else {
+                    alert('Error al agregar clase: ' + response.statusText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al conectar con el servidor');
+            }
+        });
+    </script>
+</body>
+</html>
