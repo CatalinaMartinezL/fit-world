@@ -2,6 +2,9 @@
   <div class="classes-view">
     <h1>Available Classes</h1>
     <div class="class-list">
+      <div v-if="classes.length === 0">
+        <p>No hay clases disponibles en este momento.</p>
+      </div>
       <div v-for="classItem in classes" :key="classItem.id" class="class-card">
         <h3>{{ classItem.name }}</h3>
         <p>{{ classItem.description }}</p>
@@ -12,13 +15,14 @@
       </div>
     </div>
 
-    <router-link :to="{ name: 'add_class' }">
-      <button class="add-class-button">Add New Class</button>
-    </router-link>
-
-    <router-link :to="{ name: 'signup' }">
-      <button class="signup-button">Sign Up Now</button>
-    </router-link>
+    <div class="action-buttons">
+      <router-link to="/password_check"> <!-- Cambié la redirección aquí -->
+        <button class="add-class-button">Add New Class</button>
+      </router-link>
+      <router-link :to="{ name: 'signup' }">
+        <button class="signup-button">Sign Up Now</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -65,15 +69,18 @@ export default {
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
+.action-buttons {
+  margin-top: 20px; /* Espacio antes de los botones de acción */
+}
 .add-class-button,
 .signup-button {
-  margin-top: 20px;
   padding: 12px 24px;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 10px; /* Espacio entre botones */
 }
 .add-class-button:hover,
 .signup-button:hover {
@@ -91,4 +98,3 @@ export default {
   background-color: #007B9A;
 }
 </style>
-

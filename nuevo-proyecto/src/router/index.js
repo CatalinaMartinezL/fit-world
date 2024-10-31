@@ -6,6 +6,7 @@ import ClassDetail from '../views/ClassDetail.vue';
 import ContactView from '../views/ContactView.vue';
 import AboutView from '../views/AboutView.vue';
 import AddClassView from '../views/AddClassView.vue'; // Importa el nuevo componente
+import PasswordCheck from '../views/PasswordCheck.vue'; // Importar el componente de verificación de contraseña
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
@@ -14,7 +15,8 @@ const routes = [
   { path: '/signup', name: 'signup', component: SignupView },
   { path: '/contact', name: 'contact', component: ContactView },
   { path: '/about', name: 'about', component: AboutView },
-  { path: '/add_class', name: 'add_class', component: AddClassView } // Añadir la ruta para agregar clase
+  { path: '/add_class', name: 'add_class', component: AddClassView }, // Añadir la ruta para agregar clase
+  { path: '/password_check', name: 'password_check', component: PasswordCheck } // Nueva ruta para la verificación
 ];
 
 const router = createRouter({
